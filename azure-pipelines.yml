@@ -24,8 +24,6 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build solution'
 
-- script: dotnet pack jayrajtrvedi-lab4-q1/jayrajtrvedi-lab4-q1.csproj --configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory) /p:PackageVersion=$(version)
-  displayName: 'Pack NuGet'
 
 
 - task: NuGetAuthenticate@1
@@ -34,4 +32,4 @@ steps:
   inputs:
     command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: '<YOUR_FEED_ID>'
+    publishVstsFeed: '<Myfeed>'
